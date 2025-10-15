@@ -54,16 +54,9 @@ body{
 }
 
 .main .navbar #icons:hover{
-	animation: hovered 0.2s forwards ease-in-out;
+    color: red;
 }
-@keyframes hovered{
-	from{
-		color: green;
-	}
-	to{
-		color: red;
-	}
-}
+
 .glitcher{
 	animation: glitch 1s alternate infinite;
 }
@@ -102,6 +95,7 @@ body{
 	width: max-content;
 	overflow: hidden;
 	text-shadow: #0A0 0 0 10px;
+    backdrop-filter: blur(3px);
 }
 
 .main .hero .about .field{
@@ -109,6 +103,7 @@ body{
 	color: #0a0;
 	overflow: hidden;
 	white-space: nowrap;
+    backdrop-filter: blur(3px);
 	animation-delay: 1s;
 	animation-direction: forward;
 	text-shadow: #050 0 0 10px;
@@ -239,7 +234,7 @@ body{
 	border-bottom: solid 3px #070;
 }
 .circle4{
-	border: #0f0 double 11px;
+	border: #0f0 double 3px;
 	border-style: groove;
 	height: 79px;
 	width: 79px;
@@ -460,6 +455,7 @@ body{
 	overflow: hidden;
 	animation-duration: 2.3s;
 	animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 .main .skills .hex-grid{
 	display: flex;
@@ -469,7 +465,7 @@ body{
     position: relative;
     width: 100px;
     height: 115px;
-    background-color: rgba(0, 255, 65, 0.1);
+    background-color: rgba(0, 255, 65, 0.2);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     display: flex;
 	padding: 20px;
@@ -478,6 +474,9 @@ body{
     justify-content: center;
     transition: all 0.3s ease;
     cursor: pointer;
+}
+.main .skills .hex:hover{
+    background-color: rgba(250, 5, 65, 0.3);
 }
 .main .skills .hex:nth-of-type(2){
 	animation-delay: 0.2s;
@@ -495,7 +494,8 @@ body{
 	animation-delay: 1s;
 }
 .main .skills .hex:hover {
-    background-color: rgba(0, 255, 65, 0.3);
+    background-color: rgba(250, 5, 65, 0.2);
+    color: #f00;
 }
 
 .floating {
@@ -526,8 +526,28 @@ body{
 	text-align: center;
 	overflow: hidden;
 	white-space: nowrap;
+  animation-duration: 2.3s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
 	animation-iteration-count: infinite;
 }
+.main .projects h3:hover{
+    color:#0A0;
+}
+.main .projects h3 a{
+    text-decoration: none;
+    color:#0f0;
+}
+.main .projects h3 a:hover{
+    color:#0a0;
+}
+.main .projects h3 a:visited{
+    color:#0f0
+}
+.main .projects h3 a:active{
+    color:#0f0;
+}
+
 .main .projects .project-blocks{
 	display: flex;
 	justify-content: space-evenly;
@@ -540,13 +560,15 @@ body{
 .main .projects .project-blocks .project-border{
     margin: 0;
     display: flex;
-    padding:4px;
+    padding:2px;
     border-radius: 10px;
-    background: conic-gradient(from var(--angle),transparent 0deg , #0f0 45deg  ,transparent 90deg 180deg ,#0f0  210deg 225deg,transparent 255deg 360deg);
+    background: linear-gradient( var(--angle),transparent,#0f0,transparent);
+    background-size: 300%;
+    /* background: conic-gradient(from var(--angle),transparent 0deg , #0f0 45deg  ,transparent 90deg 180deg ,#0f0  210deg 225deg,transparent 255deg 360deg); */
     height:min-content;
     background-origin: border-box;
     background-clip: padding-box,border-box;
-    animation:border-rotate 5s linear infinite ;
+    animation:border-rotate 5s ease-in-out infinite alternate;
 }
 
 @property --angle{
@@ -555,8 +577,16 @@ body{
     inherits:false;
 }
 @keyframes border-rotate {
+    /* to{ */
+    /*     --angle:360deg; */
+    /* } */
+    from{
+        --angle:0deg;
+        background-position: 0%;
+    }
     to{
         --angle:360deg;
+        background-position: 100%;
     }
 }
 
@@ -565,13 +595,13 @@ body{
 	width: max-content;
 	margin-bottom: 0vh;
 	padding: 2vh;
-    border: solid 1px #090;
+    border: solid 1px #010;
     background: black;
-	border-radius: 10px;
+	border-radius:12px;
 	backdrop-filter:blur(2px);
 }
 .main .projects .project-blocks .project:hover{
-	animation: gradient 1s alternate ease;
+	animation: gradient 1s alternate ease infinite;
 }
 .main .projects .project-blocks .project h3{
 	font-size: 26px;
@@ -656,7 +686,7 @@ body{
         display: flex;
         backdrop-filter:blur(2px);
         justify-content: right;
-        mix-blend-mode:overlay;
+        mix-blend-mode:normal;
         text-shadow: #090 0 0 10px;
     }
 	.main .navbar{

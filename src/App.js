@@ -1,10 +1,10 @@
 import "./App.css";
-import giticon from "./assets/giticon.png";
-import leetcodeicon from "./assets/leetcodeicon.png";
-import profile from "./assets/profile.jpg";
-import React, { useState, useEffect, useRef } from 'react';
+// import giticon from "./assets/giticon.png";
+// import leetcodeicon from "./assets/leetcodeicon.png";
+// import profile from "./assets/profile.jpg";
+import React, { useEffect, useRef } from 'react';
 import { HomeIcon,
-         PenIcon,
+        //  PenIcon,
          Brain,
          FolderGit2,
          UserCircle,
@@ -24,7 +24,7 @@ const App = () => {
         if(!canvas || !container) return;
         
         const ctx=canvas.getContext("2d");
-	    const fontSize=18;
+	    const fontSize=14;
 	    let cols,drops;
 	    
 	    const resizeCanvas=()=>{
@@ -74,7 +74,7 @@ const App = () => {
 		            <FolderGit2 onClick={()=>{document.getElementById('projects').scrollIntoView()}}/>
 		        </span>
 		        <span id="icons" class="glitcher" style={{animationDelay:'0.8s'}}>
-		            <UserCircle onClick={()=>{document.getElementById('footer').scrollIntoView()}}/>
+		            <UserCircle onClick={()=>{document.getElementById('terminal').scrollIntoView()}}/>
 		        </span>
 	        </div>
 	        
@@ -103,7 +103,7 @@ const App = () => {
 		        </div>
 	        </div>
 	        
-	        <div className="terminal ">
+	        <div className="terminal " id="terminal">
 		        <h2 class="type-animation">About the System</h2>
 		        <div className="description blink">
 		            <p className="terminal-title">user@sdhnt</p>
@@ -167,18 +167,21 @@ const App = () => {
 		        <h2 className="projects-title type-animation">Projects</h2>
 		        <div className="project-blocks">
 		            <div class="project-border" style={{animationDelay:'0s'}}>
-                        <div class="project blink">
+                        <div class="project">
 			                <NotebookPen size='45px' class="glitcher"/>
-			                <h3 class="title">NoteDown Web App</h3>
+			                      <h3 class="title">
+                                <a href="https://DEV-SDHNT.github.io/Note_Down">NoteDown!</a>
+                            </h3>
 			                <div class="tools-block">
 			                    <span class="tool zoomer" style={{animationDelay:'0s'}}>HTML</span>
 			                    <span class="tool zoomer" style={{animationDelay:'0.3s'}}>CSS</span>
 			                    <span class="tool zoomer" style={{animationDelay:'0.6s'}}>REACT</span>
+                          <span class="tool zoomer" style={{animationDelay:'0.9s'}}>PWA</span>
 			                </div>
 		                </div>
                     </div>
 		            <div class="project-border" style={{animationDelay:'1s'}}>
-                        <div class="project blink">
+                        <div class="project">
 			                <ScanFace size='45px' class="glitcher"/>
 			                <h3 class="title">Facial Expression Recognition</h3>
 			                <div class="tools-block">
@@ -189,9 +192,11 @@ const App = () => {
 		                </div>
                     </div>
 		            <div class="project-border" style={{animationDelay:'2s'}}>
-                        <div class="project blink">
+                        <div class="project">
 			                <ChartNoAxesCombined size='45px' class="glitcher"/>
-			                <h3 class="title">Crime Rate Predictor </h3>
+			                      <h3 class="title">
+                                <a href="https://crime-rate-predictor-6v2a.onrender.com">Crime Rate Predictor </a>
+                            </h3>
 			                <div class="tools-block">
 			                    <span class="tool zoomer" style={{animationDelay:'0s'}}>Python</span>
 			                    <span class="tool zoomer" style={{animationDelay:'0.3s'}}>Flask</span>
@@ -201,9 +206,11 @@ const App = () => {
 		                </div>
                     </div>
 		            <div class="project-border" style={{animationDelay:'3s'}}>
-                        <div class="project blink ">
+                        <div class="project">
 			                <MessagesSquare size='45px' class="glitcher"/>
-			                <h3 class="title">OpenChat Web App</h3>
+			                      <h3 class="title">
+                                <a href="https://open-chats.onrender.com">OpenChat</a>
+                            </h3>
 			                <div class="tools-block">
 			                    <span class="tool zoomer" style={{animationDelay:'0s'}}>React</span>
 			                    <span class="tool zoomer" style={{animationDelay:'0.2s'}}>Web-Socket</span>
