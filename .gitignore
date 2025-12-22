@@ -4,15 +4,19 @@
 /node_modules
 /.pnp
 .pnp.js
+
 /public 
 /src 
 /static
+
 .json
 .txt
 .js
 .jsx
 .html
+.css
 .png
+
 # testing
 /coverage
 
