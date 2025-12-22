@@ -1,7 +1,4 @@
 import "./App.css";
-// import giticon from "./assets/giticon.png";
-// import leetcodeicon from "./assets/leetcodeicon.png";
-// import profile from "./assets/profile.jpg";
 import React, { useEffect, useRef } from 'react';
 import { HomeIcon,
         //  PenIcon,
@@ -15,53 +12,51 @@ import { HomeIcon,
 
 
 const App = () => {
-    const canvasRef=useRef(null);
-    const containerRef=useRef(null);
+    // const canvasRef=useRef(null);
+    // const containerRef=useRef(null);
     
-    useEffect(()=>{
-        const canvas=canvasRef.current;
-        const container=containerRef.current;
-        if(!canvas || !container) return;
+    // useEffect(()=>{
+    //     const canvas=canvasRef.current;
+    //     const container=containerRef.current;
+    //     if(!canvas || !container) return;
         
-        const ctx=canvas.getContext("2d");
-	    const fontSize=14;
-	    let cols,drops;
-	    
-	    const resizeCanvas=()=>{
-	        canvas.width=container.clientWidth;
-	        canvas.height=container.clientHeight;
-	        cols=Math.floor(canvas.width/fontSize);
-	        drops=Array(cols).fill(1);
-	    };
-	    resizeCanvas();
-	    window.addEventListener("resize",resizeCanvas);
-	    
-	    const draw=()=>{
-	        ctx.fillStyle="rgba(0,0,0,0.08)";
-	        ctx.fillRect(0,0,canvas.width,canvas.height);
-	        
-	        ctx.fillStyle="#00FF00";
-	        ctx.font=`${fontSize}px monospace`;
-	        
-	        for(let i=0;i<drops.length;i++){
-		        const text=Math.random()>0.5?"1":"0";
-		        ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-		        if(drops[i]*fontSize>canvas.height&& Math.random()>0.975){
-		            drops[i]=0;
-		        }
-		        drops[i]++;
-	        }
-	        requestAnimationFrame(draw);
-	    };
-	    draw();
-	    return ()=>window.removeEventListener("resize",resizeCanvas);
-    },[]);
+    //     const ctx=canvas.getContext("2d");
+	  //     const fontSize=14;
+	  //     let cols,drops;
+	      
+	  //     const resizeCanvas=()=>{
+	  //         canvas.width=container.clientWidth;
+	  //         canvas.height=container.clientHeight;
+	  //         cols=Math.floor(canvas.width/fontSize);
+	  //         drops=Array(cols).fill(1);
+	  //     };
+        
+	  //     resizeCanvas();
+	  //     window.addEventListener("resize",resizeCanvas);
+	      
+	  //     const draw=()=>{
+	  //         ctx.fillStyle="rgba(0,0,0,0.08)";
+	  //         ctx.fillRect(0,0,canvas.width,canvas.height);
+	          
+	  //         ctx.fillStyle="#00FF00";
+	  //         ctx.font=`${fontSize}px monospace`;
+	          
+	  //         for(let i=0;i<drops.length;i++){
+		//             const text=Math.random()>0.5?"1":"0";
+		//             ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+		//             if(drops[i]*fontSize>canvas.height&& Math.random()>0.975){
+		//                 drops[i]=0;
+		//             }
+		//             drops[i]++;
+	  //         }
+	  //         requestAnimationFrame(draw);
+	  //     };
+	  //     draw();
+	  //     return ()=>window.removeEventListener("resize",resizeCanvas);
+    // },[]);
     
     return (
 	    <div className="main">
-	        <div className="background" ref={containerRef}>
-		        <canvas ref={canvasRef} class="matrix-rain"></canvas>
-	        </div>
 	        
 	        <div className="navbar ">
 		        <span id="icons" class="glitcher" style={{animationDelay:'0s'}}>
@@ -98,7 +93,7 @@ const App = () => {
 		        <div className="about">
 		            <span className="name">Siddhant</span>
 		            <span className="field">Mechatronics Engineer</span>
-                    <span class="field"> FullStack Developer</span>
+                <span class="field">FullStack Developer</span>
 		            <br/>
 		        </div>
 	        </div>
@@ -110,7 +105,7 @@ const App = () => {
 		            <p className="whoami type-animation">~ $ whoami</p>
 		            <p className="whoami-output type-animation">Software Developer, Tech Enthusiast.</p>
 		            <p className="cat-aboutme type-animation">~ $ cat about-me.txt</p>
-		            <p className="aboutme type-animation">
+		            <p className="aboutme">
 			            I am a multidisciplinary learner with expertise in Mechatronics and programming, driven by
 			            a strong curosity for technology and innovation.<br/> 
 			            My work spans from hardware integration to software development, enriched by creative problem-solving and continuous learning.<br/>
